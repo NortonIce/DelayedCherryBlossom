@@ -8,6 +8,7 @@ export const getCoffeeList = async (): Promise<string[]> => {
         return result;
     } catch (e) {
         console.log("error", e);
+        return [JSON.stringify(e)];
     }
     return [];
 };
