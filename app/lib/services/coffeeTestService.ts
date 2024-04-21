@@ -1,14 +1,13 @@
-import { getSql } from "../db";
+import { getSql, parseResponse } from "../db";
 
 export const getCoffeeList = async (): Promise<string[]> => {
     try {
         const sql = await getSql();
-        const result = await sql`SELECT * FROM coffee`;
+        const result = parseResponse(await sql`SELECT * FROM coffee`);
         console.log("result", result);
         return result;
     } catch (e) {
         console.log("error", e);
-        return [JSON.stringify(e)];
+        return ["error", JSON.stringify(e)];
     }
-    return [];
 };

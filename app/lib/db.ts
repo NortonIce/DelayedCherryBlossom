@@ -17,6 +17,14 @@ export const getSql = async (): Promise<any> => {
     }
 };
 
+export const parseResponse = (response: any): any[] => {
+    if (env === "development") {
+        return response;
+    } else {
+        return response.rows;
+    }
+};
+
 // export function getDatabase(): dtb {
 //     console.log(env);
 //     if (env === "development") {
