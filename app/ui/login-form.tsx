@@ -1,13 +1,10 @@
 "use client";
 
 import { useFormState, useFormStatus } from "react-dom";
-import { authenticate } from "@/app/lib/actions";
 
 export default function LoginForm() {
-    const [errorMessage, dispatch] = useFormState(authenticate, undefined);
-
     return (
-        <form action={dispatch}>
+        <form>
             <div className="flex-1 rounded-lg bg-gray-50 px-6 pb-4 pt-8">
                 Please log in to continue.
                 <div className="w-full">
@@ -54,15 +51,7 @@ export default function LoginForm() {
                     className="flex h-8 items-end space-x-1"
                     aria-live="polite"
                     aria-atomic="true"
-                >
-                    {errorMessage && (
-                        <>
-                            <p className="text-sm text-red-500">
-                                {errorMessage}
-                            </p>
-                        </>
-                    )}
-                </div>
+                ></div>
             </div>
         </form>
     );
