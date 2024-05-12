@@ -1,5 +1,11 @@
-import { User } from "@/app/auth";
+// import { User } from "@/app/auth";
 import { getSql, parseResponse } from "../db";
+
+export type User = {
+    id: string;
+    email: string;
+    password: string;
+};
 
 async function getUser(email: string): Promise<User | undefined> {
     try {

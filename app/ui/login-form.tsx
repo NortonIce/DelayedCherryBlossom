@@ -6,10 +6,8 @@ import { authenticate } from "@/app/lib/actions";
 export default function LoginForm() {
     const [errorMessage, dispatch] = useFormState(authenticate, undefined);
 
-    return <div>Login form</div>;
-
     return (
-        <form action={dispatch} className="space-y-3">
+        <form action={dispatch}>
             <div className="flex-1 rounded-lg bg-gray-50 px-6 pb-4 pt-8">
                 Please log in to continue.
                 <div className="w-full">
@@ -20,9 +18,9 @@ export default function LoginForm() {
                         >
                             Email
                         </label>
-                        <div className="relative">
+                        <div>
                             <input
-                                className="peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500"
+                                className="text-black"
                                 id="email"
                                 type="email"
                                 name="email"
@@ -38,9 +36,9 @@ export default function LoginForm() {
                         >
                             Password
                         </label>
-                        <div className="relative">
+                        <div>
                             <input
-                                className="peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500"
+                                className="text-black"
                                 id="password"
                                 type="password"
                                 name="password"
@@ -51,8 +49,7 @@ export default function LoginForm() {
                         </div>
                     </div>
                 </div>
-                {/* <LoginButton /> */}
-                <button>Login</button>
+                <LoginButton />
                 <div
                     className="flex h-8 items-end space-x-1"
                     aria-live="polite"
@@ -71,12 +68,12 @@ export default function LoginForm() {
     );
 }
 
-// function LoginButton() {
-//     const { pending } = useFormStatus();
+function LoginButton() {
+    const { pending } = useFormStatus();
 
-//     return (
-//         <button className="mt-4 w-full" aria-disabled={pending}>
-//             Log in
-//         </button>
-//     );
-// }
+    return (
+        <button className="text-black mt-4 w-full" aria-disabled={pending}>
+            Log in
+        </button>
+    );
+}
